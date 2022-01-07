@@ -16,11 +16,11 @@ from django.utils.html import strip_tags
 
 def Registration(request):
 
-        return render(request, 'index.html')
+        return render(request, 'ca_portal/ca.html')
 
 def user_register(request):
     # if this is a POST request we need to process the form data
-    template = 'register.html'
+    template = 'ca_portal/register.html'
 
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -65,7 +65,7 @@ def user_register(request):
                 to_email = extendeduser.email
 
                 name1 = str(extendeduser.first_name).title()
-                html_message = render_to_string("mail.html",{'name':name1})
+                html_message = render_to_string("ca_portal/mail.html",{'name':name1})
                 message = strip_tags(html_message)
 
                 email3 = EmailMultiAlternatives(subject,
@@ -85,7 +85,7 @@ def user_register(request):
                 #         )
                 extendeduser.save()
                 message = 'You have successfully registered on CA portal'
-                return render(request, "index.html",{'message':message})
+                return render(request, "ca_portal/ca.html",{'message':message})
 
 
 

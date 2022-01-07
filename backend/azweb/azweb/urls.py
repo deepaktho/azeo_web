@@ -16,16 +16,18 @@ Including another URLconf
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.urls import path,include
-from django.views.static import serve 
-# from azweb import settings
+from django.views.static import serve
+from azweb import settings
+from django.conf.urls import url
 
 urlpatterns = [
-    path('',include('registration_ca.urls')),
+    path('ca/',include('registration_ca.urls')),
+    path('chem_e_cross',include('chem_e_cross.urls')),
     path('admin/', admin.site.urls),
-     
-     
-    # path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
+
+
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]
 
-urlpatterns += staticfiles_urlpatterns()
+# urlpatterns += staticfiles_urlpatterns()
 

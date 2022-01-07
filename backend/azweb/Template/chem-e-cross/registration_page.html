@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chem-E-Cross</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body{
+            background: url("{% static 'assets/img/bgimage3.jpeg' %}");
+            background-color: rgb(211, 210, 210);
+        }
+
+        form{
+            margin-top: 3%;
+            margin-bottom: 10%;
+
+        }
+        #mypanelId {
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #d9edf7;
+        }
+        .text-red{
+            color: red;
+        }
+        #title{
+
+            font-weight: bolder;
+            color: #9a6505;
+            font-size: 400%;
+            padding: 1%;
+            border-radius: 3%;
+
+
+        }
+        #title_div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+    </style>
+</head>
+<body> <br><br>
+    <div id="title_div"><h1 id="title">CHEM-E-CROSS</h1></div>
+
+    <div class="container">
+        <form action="{% url 'chem_e_cross:quiz' %}" method="post">
+            {% csrf_token %}
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="mypanelId"> <h1 style="text-align: center;"> Register Now</h1></div>
+                    <div class="panel-body">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+
+                        <!-- <div class="form-group clearfix">
+                            <label for="{{ form.username.id_for_label }}" class="col-md-4 control-label text-right">Username<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ form.username }}
+                            </div>
+                        </div> -->
+
+                        <div class="form-group clearfix">
+                            <label for="{{ form.first_name.id_for_label }}" class="col-md-4 control-label text-right">First Name<span class="text-red">*</span>:</label>
+                            <div class="col-md-6" >
+                                {{ form.first_name }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.last_name.id_for_label }}" class="col-md-4 control-label text-right">Last Name<span class="text-red">*</span>:</label>
+                            <div class="col-md-6" >
+                                {{ form.last_name }}
+                            </div>
+                        </div>
+
+
+                        <div class="form-group clearfix">
+                            <label for="{{ form.email.id_for_label }}" class="col-md-4 control-label text-right">Email<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ form.email }}
+                                *Preferably Gmail
+                            </div>
+                        </div>
+
+
+                        <div class="form-group clearfix">
+                            <label for="{{ form.phone_number.id_for_label }}" class="col-md-4 control-label text-right">Phone Number<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ form.phone_number }}
+                                <p>* Preferably give whatsapp number</p>
+                            </div>
+                        </div>
+                        <!--<div class="form-group clearfix">-->
+                        <!--    <label for="{{ form.alternate_phone_number.id_for_label }}" class="col-md-4 control-label text-right">Alternate Phone Number:</label>-->
+                        <!--    <div class="col-md-6">-->
+                        <!--        {{ form.alternate_phone_number }}-->
+
+                        <!--    </div>-->
+                        <!--</div>-->
+                        <div class="form-group clearfix">
+                            <label for="{{ form.college.id_for_label }}" class="col-md-4 control-label text-right">College/University<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ form.college }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.current_year.id_for_label }}" class="col-md-4 control-label text-right">Current year of study<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ form.current_year }}
+                            </div>
+                        </div>
+                        <!--<div class="form-group clearfix">-->
+                        <!--    <label for="{{ form.permanent_address.id_for_label }}" class="col-md-4 control-label text-right">Permanent address<span class="text-red">*</span>:</label>-->
+                        <!--    <div class="col-md-6">-->
+                        <!--        {{ form.permanent_address }}-->
+                        <!--    </div>-->
+                        <!--</div>-->
+                        <div class="form-group clearfix">
+                            <label for="{{ form.current_year.id_for_label }}" class="col-md-4 control-label text-right">Pincode<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ form.pincode }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.state.id_for_label }}" class="col-md-4 control-label text-right">State<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ form.state }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-md-offset-4">
+                            <input type="submit" value="Register" class="btn btn-success">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

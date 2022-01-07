@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#&juysx(b8kh&$6+#&^*z+29s_ih7j5u$yt%&4gtclf1j0i%x^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*','www.azeotropy.org']
 
@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*','www.azeotropy.org']
 
 INSTALLED_APPS = [
     'registration_ca.apps.RegistrationCaConfig',
+    'chem_e_cross.apps.ChemECrossConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,7 +56,7 @@ MIDDLEWARE = [
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'azeo2022@gmail.com'
-EMAIL_HOST_PASSWORD = 'AZeo@123'
+EMAIL_HOST_PASSWORD = 'AZeotropy@123'
 EMAIL_PORT = 587
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -132,8 +133,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),
-]
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR,'static'),
+    ]
 
-STATIC_ROOT = os.path.join(BASE_DIR,'asset')
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR,'asset')
