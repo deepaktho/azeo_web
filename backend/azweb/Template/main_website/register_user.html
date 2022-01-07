@@ -1,0 +1,304 @@
+{% extends 'main_website/header.html' %}
+{% load static %}
+{% block active_register %} class="nav-link scrollto active " {% endblock %}
+
+{% block css_file %}
+<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<link href="{% static 'assets/css/main_website.css' %}" rel="stylesheet">
+{% endblock %}
+<!-- background: url("{% static 'assets/img/bgimage3.jpeg' %}");  -->
+{% block css %}
+
+<style>
+    body {
+        
+        background-color: #31CCBA;
+        overflow-x: hidden;
+    }
+
+    
+    
+
+
+
+     .container_form{
+        width: 97%;
+        margin: 10% 2% 5% 0.5%;
+        margin-right: 0;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 20px 20px 50px 15px #31CCBA;
+        border: grey 1px solid;
+        
+    } 
+
+    .panel-body {
+        border-color: #ddd;
+        /* padding: 40px; */
+        margin: 20px;
+        background: linear-gradient(to left,#f2f5f4, #31CCBA);
+        
+        
+        border-radius: 5px;
+    }
+
+
+    form {
+        
+        width: 100%;
+    }
+    .image_form{
+        
+        width: 80%;
+    }
+
+
+    .panel-default {
+        border-color: #ddd;
+        /* padding: 40px; */
+        margin: 0px;
+    }
+
+
+    #mypanelId {
+        color: #fff;
+        background-color: #337ab7;
+        
+    }
+
+    .image_form img{
+        width:100%;
+        height: 100%;
+    }
+
+    .text-red {
+        color: red;
+    }
+
+    #title {
+
+        font-weight: bolder;
+        color: #9a6505;
+        font-size: 400%;
+        padding: 1%;
+        border-radius: 3%;
+
+
+    }
+
+    #title_div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .panel-body {
+        display: flex;
+        flex-direction: row;
+        flex-flow: row wrap;
+        margin: 0;
+        justify-content: space-around;
+        padding-top: 2%;
+    }
+
+    .clearfix {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        margin-bottom: 10px;
+        
+        
+        
+    }
+
+    .text-right{
+        text-align: left;
+    }
+    #header .container::before{
+        content: none;
+    }
+
+    .submit{
+        margin: 3% 0;
+        text-align: center;
+    }
+
+
+
+    
+    @media (min-width: 992px) {
+        .col-md-8 {
+            width: 99%;
+        }
+
+        .col-md-4 {
+            width: 66.333333%;
+        }
+
+        .col-md-6 {
+            width: 100%;
+        }
+    }
+
+    @media (min-width: 1400px){
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1320px;
+}
+    }
+
+    
+
+    @media (max-width: 991px) {
+        .image_form{
+            display: none;
+            
+        }
+        
+
+        .clearfix {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .form_div{
+            left:5%;
+        }
+
+        .container_form {
+            width: 100%;
+            margin: 29% auto;
+            /* margin-right: 0; */
+            display: flex;
+            flex-direction: row;
+        }
+
+         .text-right {
+            text-align: center;
+        }
+        .submit{
+            margin:auto;
+        }
+    }
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+<div class=" container_form">
+    <div class="image_form" data-aos="fade-right" >
+        <img src="{% static 'assets/img/main_website_image/register_picture.jpg' %}" alt="">
+        
+    </div>
+
+<div class="form_div" data-aos="fade-left" >
+    <form action="{% url 'registration_ca:azeo_id' %}" method="post">
+        {% csrf_token %}
+
+        
+            <div class="panel panel-default">
+                <!-- <div class="panel-heading" id="mypanelId">
+                    <h1 style="text-align: center;"> Register Now</h1>
+                </div> -->
+                <div class="panel-body">
+                    {% if error_message %}
+                    <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                    {% endif %}
+
+                    <!-- <div class="form-group clearfix">
+                            <label for="{{ form.username.id_for_label }}" class="col-md-4 control-label text-right">Username<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ form.username }}
+                            </div>
+                        </div> -->
+
+                    <div class="form-group clearfix">
+                        <label for="{{ form.first_name.id_for_label }}" class="col-md-4 control-label text-right">First
+                            Name:</label>
+                        <div class="col-md-6">
+                            {{ form.first_name }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.last_name.id_for_label }}" class="col-md-4 control-label text-right">Last
+                            Name:</label>
+                        <div class="col-md-6">
+                            {{ form.last_name }}
+                        </div>
+                    </div>
+
+
+                    <div class="form-group clearfix">
+                        <label for="{{ form.email.id_for_label }}" class="col-md-4 control-label text-right">Email:</label>
+                        <div class="col-md-6">
+                            {{ form.email }}
+                            *Preferably Gmail
+                        </div>
+                    </div>
+
+
+                    <div class="form-group clearfix">
+                        <label for="{{ form.phone_number.id_for_label }}"
+                            class="col-md-4 control-label text-right">Phone Number:</label>
+                        <div class="col-md-6">
+                            {{ form.phone_number }}
+                            <p>* Preferably give whatsapp number</p>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.alternate_phone_number.id_for_label }}"
+                            class="col-md-4 control-label text-right">Alternate Phone Number:</label>
+                        <div class="col-md-6">
+                            {{ form.alternate_phone_number }}
+
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.college.id_for_label }}"
+                            class="col-md-4 control-label text-right">College/University:</label>
+                        <div class="col-md-6">
+                            {{ form.college }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.current_year.id_for_label }}"
+                            class="col-md-4 control-label text-right">Current year of study:</label>
+                        <div class="col-md-6">
+                            {{ form.current_year }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.permanent_address.id_for_label }}"
+                            class="col-md-4 control-label text-right">Permanent address
+                                :</label>
+                        <div class="col-md-6">
+                            {{ form.permanent_address }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.current_year.id_for_label }}"
+                            class="col-md-4 control-label text-right">Pincode:</label>
+                        <div class="col-md-6">
+                            {{ form.pincode }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.state.id_for_label }}" class="col-md-4 control-label text-right">State:</label>
+                        <div class="col-md-6">
+                            {{ form.state }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-md-offset-4 submit">
+                        <input type="submit" value="Register" class="btn btn-success">
+                    </div>
+                </div>
+            </div>
+
+        
+    </form>
+</div>
+</div>
+
+{% endblock %}

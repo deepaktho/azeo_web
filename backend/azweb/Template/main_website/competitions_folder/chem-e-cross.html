@@ -1,0 +1,482 @@
+{% extends 'main_website/header.html' %}
+
+{% load static %}
+{% block active_competitions %} class="nav-link scrollto active" {% endblock %}
+{% block css %}
+<style>
+    
+      
+      
+
+    .container1 {
+
+        display: flex;
+        flex-direction: row;
+        margin: 20% 20%;
+        justify-content: space-between;
+    }
+
+
+    .intro {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        border: rgb(192, 190, 190) solid 2px;
+        padding: 2% 5%;
+        border-radius: 4%;
+        box-shadow: 10px 5px 5px rgb(206, 201, 201);
+    }
+
+    .heading {
+
+        margin-top: 8%;
+
+    }
+
+    .intro h6 {
+        text-align: center;
+    }
+
+    .rules {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 90%;
+        margin-top: 5%;
+        margin-left: 3%;
+        margin-bottom: 5%;
+        border-top: solid grey;
+        border-bottom: solid grey;
+    }
+
+
+    .rules .scroll{
+        width: 45%;
+        border-right: grey solid;
+    }
+    .rules .scroll h4{
+        text-align: center;
+        font-weight: bold;
+        color: grey;
+        
+    }
+
+    .rules h4, .rules h6{
+        font-weight: bold;
+        color: grey;
+    }
+    .rules h6{
+        font-size: 1.5em;
+    }
+
+    .panel ul {
+        list-style: none;
+        height: 10em;
+        overflow-y: auto ;
+
+    }
+
+    .rules ul i {
+        padding-right: 4px;
+        color: #fdc134;
+    }
+    .rules ul li{
+        padding-right: 4%;
+    }
+
+    .img-fluid {
+        max-width: 70%;
+        height: auto;
+        margin-left: 10%;
+    }
+
+    #about_p{
+        font-size: x-large;
+    }
+
+    .instruction{
+        display: inline;
+        border: blue solid;
+        padding: 1%;
+        margin: 5% 0;
+    }
+
+    .portal_link{
+        display: inline;
+        border: blue solid;
+        padding: 1%;
+        margin: 5% 0;
+    }
+
+    @media (max-width: 768px) {
+        .heading {
+          margin-top: 15%;
+      }
+
+      .img-fluid {
+        max-width: 100%;
+        height: auto;
+        
+    }
+    }
+
+
+    /* div with tabs */
+    .secondary-btn {
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: 1px solid #5BBC2E;
+        background: #5BBC2E;
+        color: #fff;
+        transition: all 300ms ease 0ms;
+        cursor: pointer;
+    }
+    .secondary-btn:hover, .secondary-btn:focus {
+        background: #29b372;
+        border-color: #29b372;
+    }
+    .floatbox {
+        max-width: 55%;
+        border: 1px solid #d4d4d4;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0px 2px 18px 0px rgb(0 0 0 / 30%);
+        font-family: "open sans", sans-serif;
+        line-height: 1.4;
+        position: relative;
+    }
+    .floatbox-card .floatbox-tabs {
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 5px 0;
+        margin-bottom: 20px;
+    }
+    .floatbox-card .floatbox-tabs .tab {
+        padding: 0 8px;
+        cursor: pointer;
+        border-bottom: 3px solid #ccc;
+        color: #464646;
+        font-size: 20px;
+        margin-right: 2px;
+    }
+    .floatbox-card .floatbox-tabs .tab.active {
+        color: #5bbc2e;
+        border-bottom: 3px solid #5bbc2e;
+    }
+    .floatbox-card .floatbox-panels .panel {
+        padding: 0;
+        display: none;
+    }
+    .floatbox-card .floatbox-panels .panel:first-child {
+        display: block;
+    }
+    .floatbox-card .floatbox-head {
+        position: relative;
+    }
+    .floatbox-card .floatbox-toggle {
+        position: absolute;
+        top:	0;
+        right: 0;
+        font-size: 50px;
+        border: 0;
+        line-height: normal;
+        background: transparent;
+        color: #5BBC2E;
+        cursor: pointer;
+    }
+    .floatbox-card .floatbox-toggle,
+    .floatbox-card .floatbox-toggle:focus {
+        outline: none;
+    }
+    .floatbox-card .floatbox-nav {
+        display: none;
+        border: 1px solid #d4d4d4;
+        background: #fff;
+        padding: 15px 5px;
+        margin-top: 10px;
+        position: absolute;
+        left: 0;
+        right:0;
+        top: 70px;
+    }
+    .floatbox-card .floatbox-nav ul{
+        list-style-type: none;
+        padding-left: 0;
+        
+        margin: 0 auto;
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+    }
+    .floatbox-card .floatbox-nav ul label{
+        padding: 5px 10px;
+        display: inline-block;
+    }
+    .floatbox-card .floatbox-head {
+        position: relative;
+        margin-bottom: 25px;
+    }
+    
+    .floatbox-card .floatbox-title{
+        margin: 0 auto;
+        padding-bottom: 0;
+        color: #404d8a;
+    }
+    
+    .floatbox-card .floatbox-toggle {
+        position: absolute;
+        top: -15px;
+        right: 0;
+        font-size: 50px;
+        border: 0;
+        line-height: normal;
+        background: transparent;
+        color: #5BBC2E;
+        cursor: pointer;
+    }
+    .floatbox-card .floatbox-toggle,
+    .floatbox-card .floatbox-toggle:focus {
+        outline: none;
+    }
+    .floatbox-card .floatbox-nav {
+        display: none;
+        border: 1px solid #5bbc2e;
+        background: #fff;
+        padding: 5px;
+        position: absolute;
+        left: 0;
+        right:0;
+        top: 60px;    z-index: 1;
+        box-shadow: 0 10px 10px rgba(208, 208, 208, 0.6);
+    }
+    .floatbox-card .floatbox-nav:before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        right: 2px;
+        width: 0px;
+        height: 0px;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid #5bbc2e;
+    }
+    .floatbox-card .floatbox-nav ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0 auto;
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+    }
+    
+    .floatbox-card .floatbox-nav ul label{
+        padding: 5px 10px;
+        display: inline-block;
+        width: 75px;
+    }
+    
+    .floatbox-card .running-box {
+        max-height: 250px;
+        overflow: hidden;
+        border: 1px solid #efefef;
+        border-radius: 3px;
+        padding: 5px;
+    }
+    
+    .floatbox-card .running-box ul{
+        list-style-type: none;
+        padding-left: 0;
+    }
+    .floatbox-card .running-box ul li{
+        display: table;
+        width: 100%;
+        border-bottom: 1px solid #afaeae;
+        margin-bottom: 10px;
+    }
+    .floatbox-card .running-boxul li > div {
+        float: left;
+    }
+    .floatbox-card .running-box ul li span {
+        padding-left: 15px;
+        display: block;
+        color: inherit;
+        font-size: 14px;
+    }
+    
+    .floatbox-card .running-box h3 {
+        float: right;
+        margin: 0;
+        font-size: 24px;
+        font-weight: normal;
+        padding: 5px 0 0 0;
+        color: inherit;
+    }
+    
+    .floatbox-card .secondary-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 5px 10px;
+    }
+
+    @media (max-width: 768px) {
+
+        .heading {
+            margin-top: 27%;
+        }
+
+        .floatbox {
+        max-width: 89%;
+        margin-top: 5%;
+        margin-left: 5%;
+        margin-right: 5%;
+        }
+
+        .img-fluid{
+        max-width: 88%;
+        height: auto;
+        margin: 0 5%;
+        }
+    }
+    
+
+    
+
+</style>
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="section-title heading ">
+    <h2 data-aos="fade-in">Chem-E-Cross</h2>
+    <h3>Prizes Worth <span class="count">20000</span><span></span></h3>    
+</div>
+<div class="row content">
+    <div class="col-md-5" data-aos="fade-right">
+        <img src="{% static 'assets/img/main_website_image/competition-poster/chem-e-cross-2.jpeg' %}" class="img-fluid" alt="">
+    </div>
+    <!-- <div class="col-md-7 pt-5" data-aos="fade-left">
+         <h3>Sunt consequatur ad ut est nulla consectetur reiciendis animi voluptas</h3> 
+        <p id="about_p"> Every one of us might have solved a crossword in a newspaper or on the back of a book when we got bored. This time, we introduce a crossword filled with the fuzzy reactors and shiny catalyst over it, which reacts with multiple reactants to give a final product crossword puzzler.</p>
+        <div class="instruction"><a href="https://drive.google.com/file/d/1E3Yql6qtL1UdwJ020dgGqLHM2GWhIZZE/view?usp=sharing" target="_blank" >Problem Statement</a></div>
+        <div class="portal_link"><a href="">Portal Link</a></div>
+
+    </div> -->
+
+    <div class="floatbox">
+        <div class="floatbox-card">
+        <div class="floatbox-tabs">
+        <div class="tab active" data-tab-id="tab1">About</div>
+        <div class="tab" data-tab-id="tab2">Structure</div>
+        <div class="tab" data-tab-id="tab3">Contact</div>
+        
+        </div>
+        <div class="floatbox-panels">
+        <div id="tab1" class="panel">
+        <h3>About</h3>
+        <p>Every one of us might have solved a crossword in a newspaper or on the back of a book when we got bored. This time, we introduce a crossword filled with the fuzzy reactors and shiny catalyst over it, which reacts with multiple reactants to give a final product crossword puzzler.</p>
+        <a href="https://drive.google.com/file/d/1E3Yql6qtL1UdwJ020dgGqLHM2GWhIZZE/view?usp=sharing" class="secondary-btn" style="display: inline-block;margin-top: 15px;">Problem Statement</a>
+        <a href="/chem_e_cross" class="secondary-btn" style="display: inline-block;margin-top: 15px;">Portal Link</a>
+        </div>
+        
+        
+        <div id="tab2" class="panel">
+        <h3>Structure</h3>
+        <ul>
+            <li><i class="bi bi-check"></i>Chem-E-Cross will be a four-crossword puzzle series with one crossword each
+                released in October, November, December, and January.</li>
+            <li><i class="bi bi-check"></i> This is an individual participation competition.</li>
+            <li><i class="bi bi-check"></i> Undergraduate college students from any engineering background can
+                participate in this competition.</li>
+            <li><i class="bi bi-check"></i> The crossword portal link will be shared on the contest day through our
+                social media handles, listed below.   
+                <ul>
+                    <li>Facebook  : <a href="https://www.facebook.com/AZeotropy">https://www.facebook.com/AZeotropy</a></li>
+                    <li>Instagram : <a href="https://www.instagram.com/iitbombay_azeotropy/">https://www.instagram.com/iitbombay_azeotropy/</a></li>
+                </ul>
+            </li>
+            <!-- <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+            <li><i class="bi bi-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.</li>
+            <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+            <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+            <li><i class="bi bi-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.</li> -->
+        </ul>
+        <!-- <a href="/trade-details-tam/" class="secondary-btn" style="display: inline-block;margin-top: 15px;">View more</a> -->
+        </div>
+        
+        <div id="tab3" class="panel">
+        <h3>Contact</h3>
+        <h6>Harsh Baldawa</h6>
+        <p> Competitions Manager, AZeotropy</p>
+        <p>Mob: +91-8412036000</a></p> 
+        <p>Email: harsh.azeotropy@gmail.com</p>
+        <!-- <a href="/area-prices-rtm/" class="secondary-btn" style="display: inline-block;margin-top: 15px;">View more</a> -->
+        </div>
+        
+        
+        </div>
+        </div>
+        </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+    <!-- new thing -->
+
+
+</div>
+<hr>
+
+
+
+{% endblock %}
+
+{% block script %}
+
+
+<script>$('.count').each(function () {
+    $(this).prop('Counter', 0).animate({
+      Counter: $(this).text()
+    }, {
+      duration: 5000,
+      easing: 'swing',
+      step: function (now) {
+        $(this).text(Math.ceil(now));
+      }
+    });
+  });
+  </script>
+    
+<script>
+$('.floatbox-card .floatbox-tabs').on('click', '.tab',function(e){
+    //alert ($(this).attr('data-tab-id'));
+    if ($(this).hasClass('.active')) {
+        $(this).removeClass('active');
+    }
+    $(this).siblings().removeClass('active');
+    $(this).addClass('active');
+    var tabid = $(this).attr('data-tab-id');
+    $('.floatbox-card .floatbox-panels').children().hide();
+    $('.floatbox-card .floatbox-panels').find('#'+tabid).show();
+});
+$('.floatbox-toggle').click(function(){
+$(this).closest('.floatbox').find('.floatbox-nav').slideToggle();
+});
+
+</script>
+
+{% endblock %}
+

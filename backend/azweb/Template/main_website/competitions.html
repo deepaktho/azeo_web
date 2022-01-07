@@ -1,0 +1,216 @@
+{% extends 'main_website/header.html' %}
+{% load static %}
+{% block active_competitions %} class="nav-link scrollto active" {% endblock %}
+{% block css%}
+<style>
+  .services .row{
+    justify-content: space-around;
+  }
+
+  @media (min-width: 768px) {
+    .col-md-6 {
+      flex: 0 0 auto;
+      width: 30%;
+    }
+  }
+
+ 
+  
+</style>
+{%endblock%}
+{% block content %}
+<br>
+<br>
+
+
+
+
+
+
+<section id="services" class="services section-bg">
+  <div class="container competition">
+
+
+    <div class="section-title">
+      <h2 data-aos="fade-in">Competitions</h2>
+      <!-- <p data-aos="fade-in">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+    </div>
+
+
+
+    <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-card portfolio">
+            <div class="portfolio-wrap">
+              <h4>Chem-E-Cross</h4>
+              <img src="{% static 'assets/img/main_website_image/chem-e-cross_poster.jpeg' %}" class="img-fluid" alt="">
+              
+              <div class="portfolio-info">
+                
+                <h4>Chem-E-Cross</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia suscipit natus, corporis enim nostrum recusandae sint laboriosam. Alias, quaerat numquam officiis sit odit maxime! Doloremque obcaecati consectetur pariatur quidem tempore.</p>
+          
+            </div>
+            
+          </div>
+          <div class="explore">
+          <a href="competitions/chem-o-philia">Explore</a>
+          </div>
+   -->
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-left">
+        <div class="card">
+          <div class="card-img">
+            <img src="{% static 'assets/img/main_website_image/competition-poster/chem-e-cross-2.jpeg' %}" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Chem-E-Cross</a></h5>
+            <p class="card-text"> Test your engineering knowledge with this series of crosswords based on engineering concepts.</p>
+            <div class="read-more"><a href="/competitions/chem-e-cross"><i class="bi bi-arrow-right"></i> Read More</a></div>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-right">
+        <div class="card">
+          <div class="card-img">
+            <img src="{% static 'assets/img/main_website_image/competition-poster/chem-o-philia.jpeg' %}" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Chem-O-Philia</a></h5>
+            <p class="card-text">A national-level quiz that encompasses everything in chemical engineering.
+            </p>
+            <div class="read-more"><a href="/competitions_folder/chem-o-philia.html"><i class="bi bi-arrow-right"></i> Read More</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex align-items-stretch " data-aos="fade-left">
+        <div class="card">
+          <div class="card-img">
+            <img src="{% static 'assets/img/main_website_image/competition-poster/optimiser.jpeg' %}" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Optimiser</a></h5>
+            <p class="card-text">Manage datasets & extract knowledge from them using robust techniques and quantify statistical reliability of the methods.</p>
+            <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-left">
+        <div class="card">
+          <div class="card-img">
+            <img src="{% static 'assets/img/main_website_image/competition-poster/IDP.jpeg' %}"alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">IDP</a></h5>
+            <p class="card-text"> Apply theoretical concepts to solve real-life industrial problems.</p>
+            <div class="read-more">Coming Soon .....</div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-left">
+        <div class="card">
+          <div class="card-img">
+            <img src="{% static 'assets/img/main_website_image/competition-poster/cipher.jpeg' %}"alt="...">
+             </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Cipher</a></h5>
+            <p class="card-text">  A mind-boggling online cryptic hunt based on themes from popular culture.</p>
+            
+          
+          <div class="read-more">Coming Soon .....</div>
+        </div>
+      </div>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-left">
+        <div class="card">
+          <div class="card-img">
+            <img src="{% static 'assets/img/main_website_image/competition-poster/q-viz-it.jpeg' %}" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Q-viz-it</a></h5>
+            <p class="card-text"> Apply your knowledge of chemical engineering to real-world scenarios on an online platform to win a chance of visiting an Industrial plant.</p>
+            
+          
+          <div class="read-more">Coming Soon .....</div>
+        </div>
+      </div>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-left">
+        <div class="card">
+          <div class="card-img">
+            <img src="{% static 'assets/img/main_website_image/competition-poster/chemathon.jpeg' %}"alt="...">
+             </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Chemathon</a></h5>
+            <p class="card-text"> Test your computation and programming skills in a chemical engineering context.</p>
+            <div class="read-more">Coming Soon .....</div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-left">
+        <div class="card">
+          <div class="card-img">
+            <img src="{% static 'assets/img/main_website_image/competition-poster/chem-e-cross-2.jpeg' %}" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Predictioneer</a></h5>
+            <p class="card-text"> Develop a machine learning model to estimate the value of a property of a compound based on its physical & chemical properties</p>
+            <div class="read-more">Coming Soon .....</div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-left">
+        <div class="card">
+          <div class="card-img">
+            <img src="{% static 'assets/img/main_website_image/competition-poster/EDUNOVATE.jpeg' %}"alt="...">   
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Edunovate</a></h5>
+            <p class="card-text"> Teach physics and chemistry concepts to school students in an inspiring & innovative manner.</p>
+            <div class="read-more">Coming Soon .....</div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-left">
+        <div class="card">
+          <div class="card-img">
+            <img src="{% static 'assets/img/main_website_image/competition-poster/AFFICHE.jpeg' %}" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Disaster Scene Investigation</a></h5>
+            <p class="card-text"> Solve a case study based on a disaster/accident in an industry using an online platform.</p>
+            <div class="read-more">Coming Soon .....</div>
+
+          </div>
+        </div>
+      </div>
+
+      
+
+      
+
+
+
+
+
+
+    </div>
+  </div>
+
+  </div>
+</section>
+
+{% endblock %}

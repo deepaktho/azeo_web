@@ -25,7 +25,11 @@ def user_register2(request):
             if User_Chem_e_cross.objects.filter(email=form.cleaned_data['email']).exists():
                 return render(request, template, {
                     'form': form,
+<<<<<<< HEAD
                     'error_message': format_html('Email already exist.Please click <a href="https://azeotropy-iitb.github.io/chem-e-cross/" style="text-decoration: underline; font-weight: bold; ">HERE</a> to proceed!'),
+=======
+                    'error_message': 'You have already registered, click https://azeotropy-iitb.github.io/chem-e-cross/ here to proceed.'
+>>>>>>> 4f1cfd245cef821d03f983f4d04bacb319e9bd0d
                 })
 
 
